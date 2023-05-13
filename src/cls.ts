@@ -20,7 +20,7 @@ const cls = (...classnames: Classnames): string => {
     else if (typeof classname === "boolean") continue;
     else if (typeof classname === "object") {
       filtered.push(...flatten(classname));
-    } else throw new Error(`Cls: type unsupported: ${classname}`);
+        throw new Error(`Error at classname #${i}: Type not supported`);
   }
 
   return filtered.join(" ");

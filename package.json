@@ -1,13 +1,16 @@
 {
   "name": "@koido/cls",
-  "version": "1.0.6",
+  "version": "1.1.1",
   "description": "Util for managing complex jsx classnames",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
+    "build:dev": "rm -rf ./build/ && tsc",
+    "build": "rm -rf ./dist/ && npm run lint && npm run test && tsc --outDir './dist/'",
     "lint": "npx eslint --ext .ts 'src/**' 'test/**'",
+    "test": "rm -rf ./build/ && tsc --project ./test/tsconfig.json && jest ./build/"
   },
   "files": [
     "./dist/",

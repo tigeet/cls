@@ -14,14 +14,21 @@ const flatten = (clsObject: Optional): string[] => {
 
 const cls = (...classnames: Classnames): string => {
   const filtered: string[] = [];
-  for (const classname of classnames) {
-    if (!classname) continue;
-    if (typeof classname === "string") filtered.push(classname);
-    else if (typeof classname === "boolean") continue;
-    else if (typeof classname === "object") {
-      filtered.push(...flatten(classname));
+  classnames.forEach((classname, i) => {
+    if (!classname) return;
+    switch (typeof classname) {
+      case "string":
+        filtered.push(classname);
+        break;
+      case "boolean":
+        break;
+      case "object":
+        filtered.push(...flatten(classname));
+        break;
+      default:
         throw new Error(`Error at classname #${i}: Type not supported`);
-  }
+    }
+  });
 
   return filtered.join(" ");
 };

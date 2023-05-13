@@ -1,13 +1,12 @@
 # Util for managing complex react classNames
 
 Implements a method `cls: (...classnames: Classname[]) => string`,  
-the result is a string of classnames separated by spaces.  
+The result is a string of classnames separated by spaces.  
 Classname may be a
-
-- `string` - left intact
+- `string`
 - `boolean` - ignored, may be useful if using a logical expression as a classname
 - `undefined` - ignored, may be useful if dealing with optional className prop
-- `record<string, boolean | () => boolean>` - returns a string of classnames seaprated by spaces. The string includes the keys, which values are true or evaluate to true, others are ignored
+- `Record<string, boolean | () => boolean>` - returns a string of classnames separated by spaces. The string includes the keys, which values are true or evaluate to true, others are ignored
 
 ```typescript
 cls({

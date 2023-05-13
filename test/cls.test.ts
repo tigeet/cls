@@ -1,4 +1,4 @@
-import { cls } from "./cls";
+import { cls } from "../src/cls";
 
 test("Plain string is not modified", () => {
   expect(cls("classname")).toBe("classname");
